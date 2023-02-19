@@ -1,5 +1,6 @@
 <?php
 namespace BookList\Controller;
+use BookList\Form\BookForm;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\Controller\AbstractActionController;
 
@@ -11,7 +12,14 @@ class BookController extends AbstractActionController{
         ));
     }
     public function addAction(){
+        $form = new BookForm();
+        $form->get('submit')->setValue('Add');
 
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+
+        }
+        return array('form' => $form);
     }
     public function editAction(){
 
