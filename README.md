@@ -13,3 +13,6 @@
 ###6- Installing-zftool
 ##Downloading composer.phar (depending on your php version)
 php composer.phar require zendframework/zftool:dev-master
+###7 ZFTool and Module Creation
+php vendor/bin/zf.php create module test
+
