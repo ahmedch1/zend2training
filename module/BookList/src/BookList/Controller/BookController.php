@@ -9,8 +9,12 @@ class BookController extends AbstractActionController{
     protected $bookTable;
     public function indexAction()
     {
+        $paginator = $this->getBookTable()->fetchAll(true);
+        $paginator->setCurrentPageNumber((int) $this->params()->fromQuery('page', 1));
+        $paginator->setItemCountPerPage(3);
+
         return new ViewModel(array(
-            'books' => $this->getBookTable()->fetchAll(),
+            'paginator' => $paginator
         ));
     }
     public function addAction() {
