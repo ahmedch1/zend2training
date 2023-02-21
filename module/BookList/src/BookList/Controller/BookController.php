@@ -5,6 +5,7 @@ use Zend\View\Model\ViewModel;
 use Zend\Mvc\Controller\AbstractActionController;
 
 class BookController extends AbstractActionController{
+    protected $bookTable;
     public function indexAction()
     {
         return new ViewModel(array(
@@ -51,6 +52,13 @@ class BookController extends AbstractActionController{
             'id'    => $id,
             //'book' =>
         );
+    }
+    public function getBookTable(){
+        if (!$this->bookTable) {
+            $sm=$this->getServiceLocator();
+            $this->bookTable = $sm->get('BookList\Model\BookTable');
+        }
+        return $this->bookTable;
     }
 
 }
