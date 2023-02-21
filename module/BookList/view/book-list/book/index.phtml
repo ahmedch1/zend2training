@@ -28,3 +28,13 @@ $this->headTitle($title);
         </tr>
     <?php endforeach; ?>
 </table>
+<?php
+echo $this->paginationControl(
+    $this->paginator,
+    'sliding',
+    array('partial/paginator.phtml', 'Book'),
+    array(
+        'route' => 'book'
+    )
+);
+?>
