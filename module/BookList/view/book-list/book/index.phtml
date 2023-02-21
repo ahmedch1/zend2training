@@ -14,7 +14,7 @@ $this->headTitle($title);
         <th></th>
     </tr>
 
-    <?php foreach ($books as $book) : ?>
+    <?php foreach ($this->paginator as $book) : ?>
         <tr>
             <td><?php echo $this->escapeHtml($book->title);?></td>
             <td><?php echo $this->escapeHtml($book->author);?></td>
