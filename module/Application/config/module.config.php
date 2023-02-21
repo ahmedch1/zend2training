@@ -54,13 +54,45 @@ return array(
             ),
         ),
     ),
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'Home',
+                'route' => 'home',
+            ),
+            array(
+                'label' => 'Book',
+                'route' => 'book',
+                'pages' => array(
+                    array(
+                        'label' => 'Add',
+                        'route' => 'book',
+                        'action' => 'add',
+                    ),
+                    array(
+                        'label' => 'Edit',
+                        'route' => 'book',
+                        'action' => 'edit',
+                    ),
+                    array(
+                        'label' => 'Delete',
+                        'route' => 'book',
+                        'action' => 'delete',
+                    ),
+                ),
+            ),
+        ),
+    ),
     'service_manager' => array(
+        'factories' => array(
+            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+        ),
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
-        'factories' => array(
-            'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+        'aliases' => array(
+            'translator' => 'MvcTranslator',
         ),
     ),
     'translator' => array(
